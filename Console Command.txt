@@ -1,0 +1,1 @@
+docker run --rm --network=host -e AWS_REGION=us-east-1 ghcr.io/projectnessie/nessie-gc:0.101.3 gc -I, --iceberg s3.access-key-id=admin,s3.secret-access-key=password,s3.endpoint=http://localhost:9000/warehouse --inmemory
