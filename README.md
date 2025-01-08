@@ -1,5 +1,5 @@
 example for nessie-gc expiring and deleting orphan files
-with minio, iceberg tables
+in minio, iceberg tables
 
 I couldn't find any reliable sources while writing this script, so it is prone to errors in different systems
 
