@@ -6,3 +6,14 @@ docker run --rm --network=iceberg-wnifi_iceberg_net -e AWS_REGION=us-east-1 ghcr
 
  docker run --rm --network=host -e AWS_REGION=us-east-1 ghcr.io/projectnessie/nessie-gc:0.105.0 gc -I, --iceberg s3.access-key-id=minio,s3.secret-access-key=minio123,s3.endpoint=http://
 localhost:9000/warehouse --jdbc-url jdbc:postgresql://postgres:5432/nessie   --jdbc-user nessie   --jdbc-password nessie --uri http://nessie:19120/api/v2
+
+
+
+docker run --rm --network=nessipostgre_default \
+-e AWS_REGION=us-east-1 \
+ghcr.io/projectnessie/nessie-gc:0.105.0 gc -I, --iceberg \
+s3.access-key-id=minio,s3.secret-access-key=minio123,s3.endpoint=http://minio:9000,s3.path-style-access=true \
+--jdbc-url jdbc:postgresql://postgres:5432/nessie \
+--jdbc-user nessie \
+--jdbc-password nessie \
+--uri http://nessie:19120/api/v2
