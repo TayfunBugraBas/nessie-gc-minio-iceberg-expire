@@ -21,3 +21,5 @@ s3.access-key-id=minio,s3.secret-access-key=minio123,s3.endpoint=http://minio:90
 
 docker run --rm --network=nessipostgre_default -e AWS_REGION=us-east-1 ghcr.io/projectnessie/nessie-gc:0.105.0 delete  --jdbc-url jdbc:postgresql://postgres:5432/nessie --jdbc-user nessie --jdbc-password nessie --live-set-id 63c1c317-76ac-4601-9812-221adf1a5c7d
 docker run --rm --network=nessipostgre_default -e AWS_REGION=us-east-1 ghcr.io/projectnessie/nessie-gc:0.105.0 identify  --jdbc-url jdbc:postgresql://postgres:5432/nessie --jdbc-user nessie --jdbc-password nessie --uri http://nessie:19120/api/v2
+
+docker run --rm --network=nessipostgre_default -e AWS_REGION=us-east-1 ghcr.io/projectnessie/nessie-gc:0.105.0 expire -l f770c913-5517-430c-b307-0ea5058f9770 -I, --iceberg s3.access-key-id=minio,s3.secret-access-key=minio123,s3.endpoint=http://minio:9000,s3.path-style-access=true --jdbc-url jdbc:postgresql://postgres:5432/nessie --jdbc-user nessie --jdbc-password nessie
